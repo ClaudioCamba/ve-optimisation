@@ -1,0 +1,145 @@
+  /* Feature Card */
+  .pzn-feature-card {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.pzn-feature-card * {
+    box-sizing: border-box;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.pzn-card-inner {
+display: flex;
+align-items: stretch;
+justify-content: space-between;
+border: 3px #e0c2f0 solid;
+padding: 15px;
+background: #FBF7FD;
+border-radius: 10px;
+}
+
+.pzn-feature-card:hover .pzn-card-inner {
+    box-shadow: 0 0 3px 2px #e0c2f0;
+}
+.pzn-feature-card a:hover,
+.pzn-feature-card a:focus,
+.pzn-feature-card a:active,
+.pzn-feature-card a:visited {
+    text-decoration: none;
+}
+.pzn-card-img img {
+    width: 229px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.pzn-card-img {
+    width: 33%;
+    display: inline-block;
+    padding-right: 4%;
+}
+
+.pzn-card-copy {
+    width: 67%;
+}
+.pzn-title-fet {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.pzn-title-desc h5 {
+    margin: 0;
+    font-size: 20px;
+    min-height: unset;
+    line-height: 1;
+    display: inline-block;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
+.pzn-title-desc p,
+.pzn-rating .product-rating .rating .fa,
+.pzn-rating .review-count-label,
+.pzn-location .fa-map-marker,
+/* .pzn-location .product-grid-item-region-value, */
+.pzn-price .product-grid-item-price-label {
+    font-size: 16px;
+}
+
+.pzn-price .product-grid-item-price-value {
+    font-size: 21px;
+}
+
+.pzn-location .fa-map-marker,
+.pzn-location .product-grid-item-region-value {
+    text-transform: uppercase;
+    color: #142353;
+    /* font-style: italic; */
+}
+.pzn-rating {
+    padding-right: 20px;
+}
+
+/* .pzn-rating .product-rating .rating .fa {
+    color: #E10A0A;
+} */
+
+.pzn-title-desc h5,
+.pzn-title-desc p,
+.pzn-location .fa-map-marker, 
+.pzn-location .product-grid-item-region-value,
+.pzn-price .product-grid-item-price-label,
+.pzn-price .product-grid-item-price-value,
+.product-rating .review-count,
+.pzn-rating .product-rating .rating .fa {
+    color:#4B1568;
+}
+.pzn-title-desc > p {
+    display: inline-block;
+    width: 83%;
+    margin-bottom: 15px;
+}
+
+.pzn-rating, .pzn-location {
+    display: inline-block;
+}
+
+.pzn-location  .product-grid-item-region-value {
+    padding-left: 5px;
+    font-size: 15px;
+}
+.pzn-price {
+    margin-top: 15px;
+}
+.pzn-price .product-grid-item-price-value {
+    font-weight: 900;
+}
+.product-grid-item-price-label {
+    text-transform: uppercase;
+}
+.pzn-card-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* feature tag */
+
+.pzn-feature-card .featured-flag {
+    background: linear-gradient(218.07deg, #9F31BC 0%, #4B1568 100%);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 4px 8px;
+    margin-top: 0;
+    /* margin-bottom: 8px; */
+}

@@ -1,0 +1,321 @@
+
+<style>
+    /* CSS Amendments ========================================================================== */
+
+    /* All */
+
+    .dy-modal-container .dy-modal-backdrop {
+    	opacity: 0.8!important;
+    }
+    .dy-modal-container .dy-modal-wrapper .dy-modal-contents .dy-lb-close {
+    	top: 10px!important;
+    	right: 10px!important;
+    	cursor: pointer!important;
+    	height: 22px!important;
+    	width: 22px!important;
+    	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTUgNTUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU1IDU1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48ZyBpZD0iY2xvc2UiPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNDMuNSwxNC43IDQwLjMsMTEuNSAyNy41LDI0LjMgMTQuNywxMS41IDExLjUsMTQuNyAyNC4zLDI3LjUgMTEuNSw0MC4zIDE0LjcsNDMuNSAyNy41LDMwLjcgNDAuMyw0My41IDQzLjUsNDAuMyAzMC43LDI3LjUgIi8+PC9nPjwvc3ZnPg==) #1f2025;
+    	background-size: 22px!important;
+    	border: none!important;
+    	border-radius: 0!important;
+    }
+    .small-txt {
+    	font-size: 16px;
+    	color: #3e4f58;
+    }
+    .ved343-main {
+        height: auto!important;
+        min-height: 400px;
+    }
+    /* Top */
+
+    .tysurvey-top {
+    	width: 100%;
+    	height: 75px;
+    	padding: 10px;
+    	background-color: #e10a0a;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	border-bottom: 2px solid #B80000;
+    }
+    .tysurvey-top .pzn-ved-logo {
+    	width: auto;
+    	height: 100%;
+    	display: block;
+    	margin: 0 auto;
+    }
+
+    /* Body */
+    .ved343-content {
+    	width: 100%;
+    	padding: 24px;
+    	height: auto;
+        min-height: 325px;
+    }
+    .ved343-content>.step1, 
+    .ved343-content>.step2,
+    .ved343-content>.step3 {
+    	display: none;
+    }
+    .ved343-content.step1>.step1,
+    .ved343-content.step2>.step2,
+    .ved343-content.step3>.step3 {
+    	display: block;
+    }
+    /* Step 1 */
+
+    .ved343-content .pzn-title {
+    	font-family: ProximaNova, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    	font-size: 32px;
+    	font-weight: bold;
+    	color: #292d2f;
+    	margin: 0;
+    	margin-bottom: 40px;
+        padding: 0 10px;
+    }
+    /* 1-5 Stars */
+
+    .rate-stars {
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    }
+    .rate-stars>ul {
+    	display: flex;
+    	list-style-type: unset;
+    	margin-block-start: 0;
+    	margin-block-end: 0;
+    	margin-inline-start: 0;
+    	margin-inline-end: 0;
+    	padding-inline-start: 0;
+    	padding: 0 20px;
+    }
+    .rating-wrap .star-wrap {
+    	display: inline-block;
+    	margin: 0 7.5px;
+    }
+    .star-wrap .icon {
+    	font-size: 40px;
+    	color: #B80000;
+    	cursor: pointer;
+    }
+    .star-wrap .icon-star {
+    	display: none;
+    }
+    .star-wrap:hover .icon-star {
+    	display: block;
+    }
+    .star-wrap:hover .icon-star-o {
+    	display: none;
+    }
+    /* Step 2 */
+    .ved343-content .step2 .pzn-title {
+    	margin-bottom: 16px;
+    }
+    .response-btns *,
+    .response-btns  {
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+        box-sizing: border-box;
+    }
+    .response-btns  {
+        margin-bottom: 24px;
+    }
+    .response-btns > button {
+        display: inline-block;
+        width: fit-content;
+        font-size: 16px;
+        border: 1px solid #3e4f58;
+        color: #3e4f58;
+        padding: 8px 16px;
+        border-radius: 20px;
+        margin: 6px;
+        line-height: 1;
+    }
+    .response-btns > button:hover {
+        background-color: #e10a0a;
+        background-color: rgba(225, 10, 10, 0.2);
+        border-color: #e10a0a;
+        color:#B80000;
+    }
+    .response-btns > button.btn-active {
+        background-color: #B80000;
+        border-color: #FFF;
+        color: #FFF;
+    }
+    .step2 .submit-btn {
+    	color: #fff;
+    	background-color: #e10a0a;
+    	padding: 14px 40px;
+    	width: auto;
+    	border-left: none;
+    	border-radius: 4px;
+    	border-width: 0px;
+    	font-size: 14px;
+    	font-weight: 700;
+    	display: inline-block;
+    	text-transform: uppercase;
+    	text-align: center;
+        margin-bottom: 16px;
+        line-height: 1;
+    }
+    .step2 .submit-btn:hover {
+        padding: 14px 40px;
+        background-color: #b00808;
+    }
+    .step2-back,
+    .step3-close {
+    	text-decoration: underline;
+    	display: block;
+    	width: fit-content;
+    	margin: 0 auto;
+    	text-align: center;
+    	padding: 5px;
+        cursor: pointer;
+        line-height: 1;
+    }
+    </style>
+
+    <!-- HTML ========================================================================== -->
+    <div class="ved343-main" id="dytmpl-${dyVariationId}">
+        <div class="tysurvey-top"><img alt="Virgin Experience Days" class="pzn-ved-logo" src="https://ved.virgin.authxlab.com/_common/img/logos/ved--reversed.png?v=202109231430"></div>
+        <div class="ved343-content step1 content_${dyVariationId}">
+            <div class="step1">
+                <div class="pzn-title title_${dyVariationId}">
+                    ${Title}
+                </div><!-- <div class="secondary_text_${dyVariationId}">${Secondary Text}</div> -->
+                <div class="rating-wrap rate-stars">
+                    <span class="small-txt">Not Likely</span>
+                    <ul>
+                        <li action="step2" class="star-wrap" rating="1"><span class="icon icon-star"></span> <span class="icon icon-star-o"></span></li>
+                        <li action="step2" class="star-wrap" rating="2"><span class="icon icon-star"></span> <span class="icon icon-star-o"></span></li>
+                        <li action="step2" class="star-wrap" rating="3"><span class="icon icon-star"></span> <span class="icon icon-star-o"></span></li>
+                        <li action="mentionme" class="star-wrap" rating="4"><span class="icon icon-star"></span> <span class="icon icon-star-o"></span></li>
+                        <li action="mentionme" class="star-wrap" rating="5"><span class="icon icon-star"></span> <span class="icon icon-star-o"></span></li>
+                    </ul>
+                    <span class="small-txt">Very Likely</span>
+                </div>
+            </div>
+            <div class="step2">
+                <div class="pzn-title">Reason for the rating?</div>
+                <div class="response-btns"></div>
+                <button class="submit-btn button_${dyVariationId}" href="${Button URL}">${Button Text}</button>
+                <button class="small-txt step2-back">Back / Return</button>
+            </div>
+            <div class="step3">
+                <div class="pzn-title">Thank You for completing the survey</div>
+                <button class="small-txt step3-close">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        
+    // SCRIPT ==========================================================================
+    // All main variables
+    let contentWrap = document.querySelector('.ved343-content'),
+        secClasses = ['step1','step2','step3'],
+        step1Stars = document.querySelectorAll('.rating-wrap .star-wrap'),
+        step2Back = document.querySelector('.step2-back'),
+        step2wordsWrap = document.querySelector('.response-btns'),
+        step2Submit = document.querySelector('.step2 > .submit-btn'),
+        step2words = `${Words}`,
+        visSelection = {
+            rating: '',
+            feedback: []
+        }
+
+    // Split words and convert string to array
+    step2words = step2words.replace(/(\r\n|\n|\r)/gm,"").split(',');
+    
+    console.log(step2words);
+    // Adding event listners to stars
+    
+    step1Stars.forEach(function(elem) {
+        elem.addEventListener('click', function() {
+            //this function does stuff
+            // stepJourney(elem);
+            selectedRating(elem);
+        });
+    });
+
+    // function stepJourney(action){
+    //     // contentWrap.classList.remove(...secClasses);
+    //     // contentWrap.classList.add(action);
+    //     console.log(action);
+    //     console.log(action.getAttribute('action'));
+    // };
+
+    // Main function
+    function selectedRating(data) {
+
+        visSelection.rating = parseInt(data.getAttribute('rating')); // Store star rating
+        visSelection.feedback = []; // Clear feedback
+        
+        // Action depending on rating
+        if (parseInt(data.getAttribute('rating')) >= 4) {
+            console.log('FIRE MENTION ME');
+        } else {
+            step2wordsWrap.innerHTML = ''; // Clear existing buttons
+            contentWrap.classList.remove(...secClasses);
+            contentWrap.classList.add('step2');
+        }
+
+        // Insert new buttons
+        step2words.forEach(function(elem) {
+            step2wordsWrap.insertAdjacentHTML('beforeend', '<button>'+elem+'</button>'); 
+        });
+
+        // Step 2 return to Step 1
+        step2Back.addEventListener('click', function() {
+            contentWrap.classList.remove(...secClasses);
+            contentWrap.classList.add('step1');
+        });
+
+        // Add event to word buttons
+        document.querySelectorAll('.response-btns button').forEach(function(elem) {
+            elem.addEventListener('click', function() {
+                if (visSelection.feedback.includes(elem.innerText) &&  elem.classList.contains('btn-active')){
+                    visSelection.feedback.splice(visSelection.feedback.indexOf(elem.innerText), 1); // Store button text
+                    elem.classList.remove('btn-active'); // Add class to selected button
+                } else {
+                    visSelection.feedback.push(elem.innerText); // Store button text
+                    elem.classList.add('btn-active'); // Add class to selected button
+                }
+                   console.log(visSelection.rating);
+                   console.log(visSelection.feedback);
+            });
+        });
+
+        // Step 2 Submit to Step 3
+        step2Submit.addEventListener('click', function() {
+            contentWrap.classList.remove(...secClasses);
+            contentWrap.classList.add('step3');
+        });
+
+    }
+
+
+    // Tracking
+
+    
+    </script>
+
+      <!-- 
+        - 4/5 rating - console log - 
+        - store star rating -
+        - store word when clicked - 
+        - unstore when clicked again - 
+        - step3 thank you for completing survey-
+        - Simplify steps using attribute
+
+        - store details in local storage
+        - check storage for details before activating
+        - send data to GA
+        - Desktop style
+        - Tablet style
+        - Mobile style
+        - animate stars when clicked
+        - 
+       -->

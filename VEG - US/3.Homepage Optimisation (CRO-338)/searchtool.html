@@ -1,0 +1,70 @@
+<style>
+    /* CSS ============================================================================= */
+ /* Search tool move */
+/* .rec-search-move .search-experiences-hp {
+    margin-bottom: 60px;
+} */
+.rec-search-move .homepage-egiftcard-section {
+    padding-top: 40px!important;
+}
+.rec-search-move .homepage-ved-block {
+    padding-top: 60px;
+}
+.rec-search-move .sticker {
+    z-index: 1;
+}
+.rec-search-move .search-experiences-hp {
+    padding-bottom: 80px;
+}
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .rec-search-move .search-experiences-hp {
+      padding-top: 0;
+      padding-bottom: 32px;
+}
+
+}
+@media only screen and (max-width: 768px){
+  .rec-search-move .search-experiences-hp {
+    padding-bottom: 40px;
+}
+}
+
+</style>
+<script>
+// SCRIPT =============================================================================
+
+function searchTool() {
+// Variables and controls
+let veg338search = {
+    body : document.querySelector('body'),
+	searchtool : {
+		searchHide : false,  // true = Hide / false = Show
+		searchMove : true, // true = Move below category sec / false = stay
+		searchToolModule : document.querySelector('.search-experiences-hp'),
+		// searchToolParent:  document.querySelector('.homepage-hero.homepage-section'),
+		brandInfoMod : document.querySelector('.homepage-egiftcard-section > .box-container')
+	}
+}
+
+// Search tool deciding -------------------------------------------------------------------
+if (veg338search.searchtool.searchHide){
+    veg338search.searchtool.searchToolModule.style.display = 'none'
+// 	console.log('Hide Dont move');
+ } else if (veg338search.searchtool.searchMove) {
+	veg338search.body.classList.add('rec-search-move');
+	veg338search.searchtool.brandInfoMod.before(veg338search.searchtool.searchToolModule);
+// 	console.log('Show move');
+ }
+
+}
+
+/**** Check if Search Tool has Loaded ****/
+var searchToolWait = setInterval(function() {
+    if (document.querySelectorAll('.homepage-egiftcard-section > .box-container').length > 0 ) {
+        clearInterval(searchToolWait); //clear interval (Always clear your timers/intervals when the task has been completed)
+        searchTool(); //load main function
+    } else if (document.readyState === 'complete') { //aditional chck in case jQuery never exists
+        clearInterval(searchToolWait); //clear interval (Always clear your timers/intervals when the task has been completed)
+    }
+}, 100);
+</script>

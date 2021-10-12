@@ -1,0 +1,606 @@
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); */
+
+
+/* All */
+
+.pzn-deal-promo * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+}
+.promo-copy-cta h2,
+.promo-copy-cta p,
+.promo-copy-cta a,
+.card-copy .card-desc p,
+.card-copy .card-desc ul,
+.card-price > span:nth-of-type(1),
+.card-price > span:nth-of-type(2),
+.pzn-deal-promo  {
+    font-family: ProximaNova, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.pzn-deal-promo {
+    margin: 0!important;
+    font-size: unset!important;
+    line-height: unset!important;
+}
+.pzn-deal-promo .pzn-mob {
+    display: none;
+}
+.promo-inner-wrap {
+    position: relative;
+    margin: 0 10px;
+    margin-bottom: 48px;
+}
+.pzn-snow-bg {
+    width:100%;
+    height:auto;
+}
+
+/* Centered Content */
+.pzn-deal-promo .content-wrap {
+    padding: 0 32px;
+    position: absolute;
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+/* Left */
+.promo-copy-cta {
+    display: inline-block;
+    width: 100%;
+    max-width: 382px;
+}
+
+.promo-copy-cta h2 {
+    letter-spacing: -0.02em;
+    color: #121826;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 24px;
+    margin-bottom:16px;
+}
+/* Dark variation */
+.pzn-deal-promo.dark .promo-copy-cta h2,
+.pzn-deal-promo.dark .promo-copy-cta p,
+.pzn-deal-promo.dark .promo-copy-cta p,
+.pzn-deal-promo.dark .card-copy .card-desc p,
+.pzn-deal-promo.dark .card-copy .card-desc ul,
+.pzn-deal-promo.dark .card-price > span:nth-of-type(1){ 
+    color:#F6F8FC;
+}
+.promo-copy-cta p {
+    margin-bottom: 10px;
+    color: #292D2F;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 24px;
+}
+.txt-bold {
+    font-weight: bold;
+}
+.promo-copy-cta a {
+    width: 100%;
+    max-width: 179px;
+    display: inline-block;
+    background: #E10A0A;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 13px;
+    margin-top: 15px;
+    /* text-transform: uppercase; */
+}
+/* Right */
+    /* hide scrollbar but allow scrolling */
+    .promo-product {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    }
+
+    .promo-product::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+    }
+
+.promo-product {
+    width: 100%;
+    max-width: 674px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    justify-content: flex-start;
+    padding: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+}
+.product-inner {
+    display: block;
+    width: 100%;
+    padding-bottom:5px;
+}
+.pzn-prod-nav {
+    position: absolute;
+    right: 32px;
+    top: 24px;
+}
+.pzn-prod-nav button {
+    display: inline-block;
+    font-size: 10px;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: 0;
+    margin-left: 5px;
+    transition: all 0.2s;
+}
+.pzn-prod-nav button .icon {
+    font-size: 16px;
+    color: #292d2f;
+}
+
+.pzn-prod-nav.nav-right .pzn-back,
+.pzn-prod-nav.nav-left .pzn-next {
+    width: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.pzn-prod-nav.nav-right .pzn-next,
+.pzn-prod-nav.nav-left .pzn-back {
+    width: 64px;
+    margin: 0;
+}
+.promo-product .prod-card {
+    /* width: 33.33%;
+    display: inline-block;
+    margin-right: 2.5%; */
+    width: 214px;
+    display: inline-block;
+    margin-right: 16px;
+    vertical-align: top;
+}
+.promo-product .prod-card:last-of-type {
+    margin: 0!important;
+}
+/* .promo-product .prod-card:hover {
+    background: rgba(255, 255, 255, 0.8);
+} */
+.card-img {
+    margin-bottom: 10px;
+    position: relative;
+}
+.card-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+.card-copy {
+    padding: 0;
+    overflow: unset;
+    white-space: normal;
+}
+
+.card-copy .card-desc li,
+.card-copy .card-desc p {
+    font-style: normal;
+    color: #121826;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 66px;
+    margin-bottom: 16px;
+}
+
+.card-price > span:nth-of-type(1) {
+    font-feature-settings: 'salt' on;
+    color: #121826;
+    padding-right: 8px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    color: #292D2F;
+}
+
+.card-price > span:nth-of-type(2) {
+    font-feature-settings: 'salt' on;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 13px;
+    letter-spacing: 0.02em;
+    text-decoration-line: line-through;
+    color: #A5A7AD;
+}
+
+.card-price span:nth-of-type(1)  > .pzn-deci {
+    font-size: 18px;
+}
+
+.card-price span:empty,
+.txt-bold:empty,
+.pzn-deal-promo .featured-flag.white:empty,
+.pzn-deal-promo .featured-flag.red:empty {
+    display: none;
+}
+
+.pzn-santa-img {
+    position: absolute;
+    bottom: 18px;
+    left: 215px;
+    max-width: 166.54px;
+}
+
+/* Tags */
+.pzn-deal-promo .featured-flag.red {
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    display: inline-block;
+    padding: 2px 4px 0 4px;
+    margin-top: 0;
+    background: #E10A0A;
+    border-radius: 2px;
+    font-style: normal;
+    width:fit-content;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    font-feature-settings: 'ss01' on;
+    color: #FFFFFF;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+
+.pzn-deal-promo .featured-flag.white {
+    /* text-transform: uppercase; */
+    display: inline-block;
+    padding: 2px 4px 0 4px;
+    margin-top: 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    width:fit-content;
+    font-feature-settings: 'ss01' on;
+    color: #394150;
+    background: #FFFFFF;
+    text-align: center;
+    border-radius: 2px;
+    position: absolute;
+    letter-spacing: 0.2px;
+    left: 10px;
+    top: 8px;
+}
+
+/* BF + CM ---------------------------------- */
+/* Left */
+.pzn-deal-promo.black-friday .promo-copy-cta h2,
+.pzn-deal-promo.cyber-monday .promo-copy-cta h2 {
+    letter-spacing: unset;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 24px;
+}
+.pzn-deal-promo.black-friday .promo-copy-cta,
+.pzn-deal-promo.cyber-monday .promo-copy-cta {
+    text-align: center;
+    margin-top: 170px;
+    width: 352px;
+    min-width: 352px;
+    padding-right: 32px;
+}
+.pzn-deal-promo.black-friday .promo-copy-cta a,
+.pzn-deal-promo.cyber-monday .promo-copy-cta a {
+    max-width: 158px;
+}
+.pzn-deal-promo.black-friday .promo-copy-cta p,
+.pzn-deal-promo.cyber-monday .promo-copy-cta p {
+    margin-bottom: 9px;
+    font-size: 18px;
+    line-height: 24px;
+    /* max-width: 307px; */
+    height: auto;
+}
+.pzn-deal-promo.black-friday .pzn-logo-img,
+.pzn-deal-promo.cyber-monday .pzn-logo-img {
+    position: absolute;
+    left: 64px;
+    top: 26px;
+    width: 100%;
+    max-width: 257px;
+}
+/* Right */
+.pzn-deal-promo.black-friday .promo-product .prod-card,
+.pzn-deal-promo.cyber-monday .promo-product .prod-card {
+    background: #282B30;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 20%), 0px 2px 2px rgb(0 0 0 / 15%);
+    border-radius: 8px;
+}
+.pzn-deal-promo.black-friday .card-copy,
+.pzn-deal-promo.cyber-monday .card-copy {
+    padding: 0 16px 24px;
+}
+.pzn-deal-promo.black-friday .card-img img,
+.pzn-deal-promo.cyber-monday .card-img img {
+    border-radius: 0;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.pzn-deal-promo.black-friday .card-img,
+.pzn-deal-promo.cyber-monday .card-img {
+    margin-bottom: 27px;
+}
+.pzn-deal-promo.black-friday .featured-flag.white,
+.pzn-deal-promo.cyber-monday .featured-flag.white {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: -12px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    padding: 4px 8px;
+    background: linear-gradient(87.71deg, #E10A0A 0%, #B80000 100%);
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 20%), 0px 2px 2px rgb(0 0 0 / 15%);
+    border-radius: 4px;
+}
+/* BF + CM ---------------------------------- */
+@media only screen and (max-width: 1160px) { 
+    /* Copy */
+    .promo-copy-cta {
+        max-width: 32.93vw;
+        padding-right: 32px;
+    }
+    /* Background */
+    .pzn-santa-img {
+        left: 18.53vw;
+        max-width: 14.35vw;
+    }
+    .pzn-snow-bg {
+        min-width: 1128px;
+        height: 466px;
+    }
+    .pzn-promo-bg {
+        overflow: hidden;
+    }
+}
+@media only screen and (max-width: 1000px) { 
+    /* Background */
+    .pzn-santa-img {
+        max-width: 144px;
+    }
+}
+@media only screen and (max-width: 840px) { 
+    /* Slider */
+    .promo-product .prod-card {
+        width: 221px;
+    }
+    /* Copy */
+    .promo-copy-cta {
+        max-width: 277px;
+    }
+}
+@media only screen and (max-width: 680px) {
+/* BF + CM ---------------------------------- */
+    .pzn-deal-promo.black-friday .pzn-logo-img,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p {
+        left: 7.0588vw;
+        max-width: 37.7941vw;
+    }
+    .pzn-deal-promo.black-friday .promo-copy-cta,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p {
+        /* margin-top: 25vw; */
+        width: 46.7647vw;
+        min-width: 46.7647vw;
+    }
+    .pzn-deal-promo.black-friday .promo-copy-cta h2,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p {
+        font-size: 3.5294vw;
+        line-height: 3.5294vw;
+    }
+    .pzn-deal-promo.black-friday .promo-copy-cta p,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p {
+        font-size: 2.3529vw;
+        line-height: 3.2352vw;
+    }
+/* BF + CM ---------------------------------- */
+}
+@media only screen and (max-width: 639px) {
+    /* All */
+    .pzn-deal-promo .pzn-mob {
+        display: inline-block;
+    }
+    .pzn-deal-promo .pzn-dsk {
+        display: none;
+    }
+    .pzn-deal-promo .content-wrap {
+        flex-direction: column;
+    }
+    .promo-copy-cta,.promo-product {
+        width: 100%;
+        padding: 0 4.1025vw;
+        max-width: unset;
+    }
+    .pzn-prod-nav {
+        display:none;
+    }
+    .promo-inner-wrap {
+        padding:0;
+    }
+    /* Left */
+    .promo-copy-cta h2 {
+        font-size: 10.2564vw;
+        line-height: 12.3076vw;
+        margin-bottom: 2.5641vw;
+    }
+    .promo-copy-cta p {
+        font-size: 4.1025vw;
+        line-height: 6.1538vw;
+        margin:0;
+    }
+    .pzn-deal-promo .content-wrap {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 10.2564vw 0;
+    }
+    .promo-copy-cta p br {
+        display: none;
+    }
+    .promo-copy-cta a {
+        position: absolute;
+        top: 146.4102vw;
+        width: 100%;
+        max-width: 91.7948vw;
+        padding: 3.3333vw;
+        font-size: 3.5897vw;
+        line-height: 3.5897vw;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 999;
+    }
+    /* Right */
+    .promo-product {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        justify-content: flex-start;
+        padding-bottom: 21.7948vw;
+        padding-top: 12.0512vw;
+    }
+
+    .product-inner {
+        display: block;
+        width: 100%;
+    }
+    .promo-product .prod-card {
+        width: 61.5384vw;
+        display: inline-block;
+        margin-right: 4.1025vw;
+    }
+
+    .card-copy .card-desc p, .card-copy .card-desc ul {
+        margin-bottom: 4.1025vw;
+    }
+    .card-copy .card-desc li, .card-copy .card-desc p {
+        font-size: 4.1025vw;
+        line-height: 6.1538vw;
+        height: 18.4614vw;
+    }
+    .card-price > span:nth-of-type(1) {
+        padding-right: 2.0512vw;
+        font-size: 6.1538vw;
+        line-height: 6.1538vw;
+    }
+    .card-price > span:nth-of-type(2) {
+        font-size: 3.5897vw;
+        line-height: 3.5897vw;
+    }
+    .card-price span:nth-of-type(1)  > .pzn-deci {
+        font-size: 4.6153vw;
+    }
+    .card-copy {
+        padding: 0;
+    }
+    .promo-product .prod-card:last-of-type {
+        margin-right: 4.1025vw!important;
+    }
+    /* Background & Images */
+    .pzn-snow-bg {
+        min-width: 100%;
+        height: auto;
+    }
+    .pzn-santa-img {
+        position: absolute;
+        bottom: unset;
+        width: 100%;
+        max-width: 61.0871vw;
+        margin-bottom: 0;
+        left: unset;
+        right: 0;
+        top: 56.6666vw;
+        pointer-events: none;
+      
+    }
+    .pzn-mob.pzn-hide.pzn-santa-img {
+        right: -61.0871vw;
+        transition: all 2s;
+    }
+
+/* BF + CM ---------------------------------- */
+    .pzn-deal-promo.black-friday .pzn-logo-img,
+    .pzn-deal-promo.cyber-monday .pzn-logo-img {
+        max-width: 65.8974vw;
+        top: 4.3589vw;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .pzn-deal-promo.black-friday .promo-copy-cta,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta {
+        margin-top: 50.7692vw;
+        width: 100%;
+        min-width: 100%;
+        padding: 0 4.1025vw;
+    }
+    .pzn-deal-promo.black-friday .promo-copy-cta h2,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta h2 {
+        font-size: 6.1538vw;
+        line-height: 6.1538vw;
+        margin-bottom: 5.1282vw;
+    }
+    .pzn-deal-promo.black-friday .promo-copy-cta p,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p {
+        font-size: 4.6153vw;
+        line-height: 6.1538vw;
+        margin: 0 auto;
+        margin-bottom: 2.3076vw;
+        width:100%;
+        max-width: unset;
+    }
+    .pzn-deal-promo.black-friday .promo-product,
+    .pzn-deal-promo.cyber-monday .promo-product {
+        padding-top: 8.2051vw;
+    }
+    .pzn-deal-promo.black-friday .promo-copy-cta a,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta a {
+        max-width: 91.7948vw;
+        bottom: 12.3076vw;
+        top: auto;
+    }
+    .pzn-deal-promo.black-friday .promo-copy-cta p br,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p br {
+        display: unset;
+    }
+/* BF + CM ---------------------------------- */
+}
+
