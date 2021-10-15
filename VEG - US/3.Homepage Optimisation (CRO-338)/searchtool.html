@@ -29,11 +29,12 @@
 }
 }
 
+
 </style>
 <script>
 // SCRIPT =============================================================================
 
-function searchTool() {
+// function searchTool() {
 // Variables and controls
 let veg338search = {
     body : document.querySelector('body'),
@@ -56,15 +57,15 @@ if (veg338search.searchtool.searchHide){
 // 	console.log('Show move');
  }
 
-}
+// }
 
 /**** Check if Search Tool has Loaded ****/
-var searchToolWait = setInterval(function() {
-    if (document.querySelectorAll('.homepage-egiftcard-section > .box-container').length > 0 ) {
-        clearInterval(searchToolWait); //clear interval (Always clear your timers/intervals when the task has been completed)
-        searchTool(); //load main function
-    } else if (document.readyState === 'complete') { //aditional chck in case jQuery never exists
-        clearInterval(searchToolWait); //clear interval (Always clear your timers/intervals when the task has been completed)
-    }
-}, 100);
+// var searchToolWait = setInterval(function() {
+//     if (document.querySelectorAll('.homepage-egiftcard-section > .box-container').length > 0 ) {
+//         clearInterval(searchToolWait); //clear interval (Always clear your timers/intervals when the task has been completed)
+//         searchTool(); //load main function
+//     } else if (document.readyState === 'complete') { //aditional chck in case jQuery never exists
+//         clearInterval(searchToolWait); //clear interval (Always clear your timers/intervals when the task has been completed)
+//     }
+// }, 100);
 </script>
