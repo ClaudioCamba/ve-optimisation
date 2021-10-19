@@ -442,6 +442,12 @@
 }
 /* BF + CM ---------------------------------- */
 @media only screen and (max-width: 1160px) { 
+    /* Adjustment */
+    .pagetype-home.pzn-deal-promo {
+        width: 100vw;
+        position: relative;
+        left: calc(-50vw + 50%);
+    }
     /* Copy */
     .promo-copy-cta {
         max-width: 32.93vw;
@@ -485,24 +491,24 @@
 }
 @media only screen and (max-width: 680px) {
 /* BF + CM ---------------------------------- */
-    .catPageVar.pzn-deal-promo.black-friday .pzn-logo-img,
-    .catPageVar.pzn-deal-promo.cyber-monday .promo-copy-cta p {
+    .pzn-deal-promo.black-friday .pzn-logo-img,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p {
         left: 7.0588vw;
         max-width: 37.7941vw;
     }
-    .catPageVar.pzn-deal-promo.black-friday .promo-copy-cta,
-    .catPageVar.pzn-deal-promo.cyber-monday .promo-copy-cta p {
+    .pzn-deal-promo.black-friday .promo-copy-cta,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p {
         /* margin-top: 25vw; */
         width: 46.7647vw;
         min-width: 46.7647vw;
     }
-    .catPageVar.pzn-deal-promo.black-friday .promo-copy-cta h2,
-    .catPageVar.pzn-deal-promo.cyber-monday .promo-copy-cta p {
+    .pzn-deal-promo.black-friday .promo-copy-cta h2,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p {
         font-size: 3.5294vw;
         line-height: 3.5294vw;
     }
-    .catPageVar.pzn-deal-promo.black-friday .promo-copy-cta p,
-    .catPageVar.pzn-deal-promo.cyber-monday .promo-copy-cta p {
+    .pzn-deal-promo.black-friday .promo-copy-cta p,
+    .pzn-deal-promo.cyber-monday .promo-copy-cta p {
         font-size: 2.3529vw;
         line-height: 3.2352vw;
     }
@@ -681,5 +687,10 @@
         display: unset;
     }
 /* BF + CM ---------------------------------- */
+}
+
+/* Adjustment */
+.pagetype-xmas > .promo-inner-wrap{
+    margin-top: 48px;
 }
 
