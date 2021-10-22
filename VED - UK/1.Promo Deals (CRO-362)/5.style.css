@@ -32,8 +32,8 @@
     position: relative;
     display: block;
     max-width: 1120px;
-    margin: 0 auto;
-    margin-bottom: 48px;
+    margin: 0 auto!important;
+    margin-bottom: 48px!important;
 }
 .pzn-snow-bg {
     width:100%;
@@ -129,6 +129,7 @@
     display: block;
     width: 100%;
     padding-bottom:5px;
+    font-size:0!important;
 }
 .pzn-prod-nav {
     position: absolute;
@@ -171,6 +172,13 @@
     display: inline-block;
     margin-right: 16px;
     vertical-align: top;
+    background: #FFF;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+.christmas.dark .promo-product .prod-card {
+    background: #071C35;
+    background: rgba(0, 0, 0, 0.25);
 }
 .promo-product .prod-card:last-of-type {
     margin: 0!important;
@@ -186,9 +194,11 @@
     width: 100%;
     height: auto;
     border-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 .card-copy {
-    padding: 0;
+    padding: 0 16px 16px;
     overflow: unset;
     white-space: normal;
 }
@@ -613,7 +623,7 @@
         font-size: 4.6153vw;
     }
     .card-copy {
-        padding: 0;
+        padding: 0 16px 16px;
     }
     .promo-product .prod-card:last-of-type {
         margin-right: 4.1025vw!important;
@@ -691,6 +701,5 @@
 
 /* Adjustment */
 .pagetype-xmas > .promo-inner-wrap{
-    margin-top: 48px;
+    margin-top: 48px!important;
 }
-

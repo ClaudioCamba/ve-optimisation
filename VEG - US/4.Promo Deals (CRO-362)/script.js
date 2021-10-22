@@ -1,14 +1,14 @@
 // HTML to be appended into the page
 let pznValues362 = {
   'christmas' : { // christmas values
-      // appendAfter : `.container > .row`,
+      // appendAfter : `.row.result-container`,
       appendPage : {
-          'home' : `.container > .categoryBoxes`, // Homepage append
+          'home' : `.homepage-section.homepage-egiftcard-section`, // Homepage append
           'special' : `.maincontent > .categoryPage`, // Special page append
-          'category' : `.container > .row`, // Category page append
+          'category' : `.row.result-container`, // Category page append
           'xmas' : `#categorypage > div:nth-of-type(2)` // Xmas page append
       },
-      pagecat : window.pageType || window.pageName,
+      pagecat : window.pageName,
       strategyID : Math.round('${Christmas Strategy ID}'),
       recProducts : ``,
       title: `${Christmas Title}`,
@@ -21,31 +21,30 @@ let pznValues362 = {
       theme: `light`,
       time: new Date().getHours(),
       backgrounds: `
-          <img class="pzn-dsk pzn-santa-img" alt="Santa image" src="https://www.virginexperiencedays.co.uk/files/CD-santa-desktop.png">
-          <img class="pzn-mob pzn-santa-img" alt="Santa image" src="https://www.virginexperiencedays.co.uk/files/CD-santa-mobile.png">
-          <img class="pzn-dsk pzn-snow-bg" alt="Snow background" src="https://www.virginexperiencedays.co.uk/files/christmas-deal-bg-desktop.png">
-          <img class="pzn-mob pzn-snow-bg" alt="Snow background" src="https://www.virginexperiencedays.co.uk/files/christmas-deal-bg-mobile.png">
+          <img class="pzn-dsk pzn-santa-img" alt="${Santa Image Alt}" src="${Santa Desktop Image}">
+          <img class="pzn-mob pzn-santa-img" alt="${Santa Image Alt}" src="${Santa Mobile Image}">
+          <img class="pzn-dsk pzn-snow-bg" alt="${Christmas BG Day Alt}" src="${Christmas BG Desktop Day}">
+          <img class="pzn-mob pzn-snow-bg" alt="${Christmas BG Day Alt}" src="${Christmas BG Mobile Day}">
           `,
       backgrounds2: `
-        <img class="pzn-dsk pzn-santa-img" alt="Santa image" src="https://www.virginexperiencedays.co.uk/files/CD-santa-desktop.png">
-        <img class="pzn-mob pzn-santa-img" alt="Santa image" src="https://www.virginexperiencedays.co.uk/files/CD-santa-mobile.png">
-        <img class="pzn-dsk pzn-snow-bg" alt="Snow background" src="https://www.virginexperiencedays.co.uk/files/christmas-deal-bg2-desktop.png">
-        <img class="pzn-mob pzn-snow-bg" alt="Snow background" src="https://www.virginexperiencedays.co.uk/files/christmas-deal-bg2-mobile.png">
+        <img class="pzn-dsk pzn-santa-img" alt="${Santa Image Alt}" src="${Santa Desktop Image}">
+        <img class="pzn-mob pzn-santa-img" alt="${Santa Image Alt}" src="${Santa Mobile Image}">
+        <img class="pzn-dsk pzn-snow-bg" alt="${Christmas BG Night Alt}" src="${Christmas BG Desktop Night}">
+        <img class="pzn-mob pzn-snow-bg" alt="${Christmas BG Night Alt}" src="${Christmas BG Mobile Night}">
       `
-
-      
   },
   'black-friday' : { // black friday values
-      // appendAfter : `.container > .row`,
-      // catAppendAfter : `.categoryResultsContainer`, // Category page append
+      // appendAfter : `.row.result-container`,
+      // catAppendAfter : `.result-container > .col-xs-12.col-sm-9`, // Category page append
       appendPage : {
-          'home' : `.container > .categoryBoxes`, // Homepage append
-          'category2' : `.container > .row`, // Category page append outside result
-          'special' : `.maincontent > .categoryPage`, // Special page append
-          'category' : `.categoryResultsContainer`, // Category page append
+          'home' : `.homepage-section.homepage-egiftcard-section`, // Homepage append
+          'category2' : `.row.result-container`, // Category page append outside result
+          'special' : `.categoryPage > .container > .row`, // Special page append
+          //'special' : `.maincontent > .categoryPage`, // Special page append
+          'category' : `.result-container > .col-xs-12.col-sm-9`, // Category page append
           'xmas' : `#categorypage > div:nth-of-type(2)` // Xmas page append
       },
-      pagecat : window.pageType || window.pageName,
+      pagecat : window.pageName,
       strategyID : Math.round('${BF CM Strategy ID}'),
       recProducts : ``,
       title: `${BF CM Title}`,
@@ -53,27 +52,28 @@ let pznValues362 = {
       description: `${BF CM Description}`,
       btntext: `${BF CM Button Text}`,
       buttonLink : `${BF CM Button Link}`,
-      whitetab: `${BF CM Red Label}`,
+      whitetab: `${BF CM Red Label} `,
       theme: 'dark',
       redtab: ``,
       backgrounds: `
-          <img class="pzn-logo-img" alt="black friday logo" src="https://www.virginexperiencedays.co.uk/files/blackfriday-logo.png">
-          <img class="pzn-dsk pzn-snow-bg" alt="black friday background" src="https://www.virginexperiencedays.co.uk/files/blackfriday-deal-bg-desktop.png">
-          <img class="pzn-mob pzn-snow-bg" alt="black friday background" src="https://www.virginexperiencedays.co.uk/files/blackfriday-deal-bg-mobile.png">
+          <img class="pzn-logo-img" alt="${BF Logo Alt}" src="${BF Image Logo}">
+          <img class="pzn-dsk pzn-snow-bg" alt="${BF BG Alt}" src="${BF BG Desktop}">
+          <img class="pzn-mob pzn-snow-bg" alt="${BF BG Alt}" src="${BF BG Mobile}">
           `
   },
   'cyber-monday' : { // cyber monday values
-      // appendAfter : `.container > .row`,
-      // catAppendAfter : `.categoryResultsContainer`, // Category page append
+      // appendAfter : `.row.result-container`,
+      // catAppendAfter : `.result-container > .col-xs-12.col-sm-9`, // Category page append
       appendPage : {
-          'home' : `.container > .categoryBoxes`, // Homepage append
-          'category2' : `.container > .row`, // Category page append outside result
+          'home' : `.homepage-section.homepage-egiftcard-section`, // Homepage append
+          'category2' : `.row.result-container`, // Category page append outside result
           // 'special2' : `.maincontent > .categoryPage`, // Special page append
-          'special' : `.maincontent > .categoryPage`, // Special page append
-          'category' : `.categoryResultsContainer`, // Category page append
+          'special' : `.categoryPage > .container > .row`, // Special page append
+          //'special' : `.maincontent > .categoryPage`, // Special page append
+          'category' : `.result-container > .col-xs-12.col-sm-9`, // Category page append
           'xmas' : `#categorypage > div:nth-of-type(2)` // Xmas page append
       },
-      pagecat : window.pageType || window.pageName,
+      pagecat : window.pageName,
       strategyID : Math.round('${BF CM Strategy ID}'),
       recProducts : ``,
       title: `${BF CM Title}`,
@@ -81,26 +81,39 @@ let pznValues362 = {
       description: `${BF CM Description}`,
       btntext: `${BF CM Button Text}`,
       buttonLink : `${BF CM Button Link}`,
-      whitetab: `${BF CM Red Label}`,
+      whitetab: `${BF CM Red Label} `,
       theme: 'dark',
       redtab: ``,
       backgrounds: `
-          <img class="pzn-logo-img" alt="cyber monday logo" src="https://www.virginexperiencedays.co.uk/files/cybermonday-logo.png">
-          <img class="pzn-dsk pzn-snow-bg" alt="cyber monday background" src="https://www.virginexperiencedays.co.uk/files/cybermonday-deal-bg-desktop.png">
-          <img class="pzn-mob pzn-snow-bg" alt="cyber monday background" src="https://www.virginexperiencedays.co.uk/files/cybermonday-deal-bg-mobile.png">
+          <img class="pzn-logo-img" alt="${CM Logo Alt}" src="${CM Image Logo}">
+          <img class="pzn-dsk pzn-snow-bg" alt="${CM BG Alt}" src="${CM BG Desktop}">
+          <img class="pzn-mob pzn-snow-bg" alt="${CM BG Alt}" src="${CM BG Mobile}">
           `
   }
 }
 
   // Control: value selector =======================================
   let promoEvent = '${Theme Option}', // christmas / black-friday / cyber-monday
-      pageTypes = '${Page Type}', // Home / Category / Special / Xmas / Auto
+      pageTypes = '', // Home / Category / Special / Xmas / Auto
       variationType = '${Module Variation}', // Uncompressed / Compressed 
       xmasTime = Math.round('${Christmas BG Time}'), // 24 Hour format
-      prodNumber = Math.round('${Number of Products}'); // Number of products for DY to pull
+      prodNumber = Math.round('${Number of Products}'), // Number of products for DY to pull
+      xmasCat = '${Xmas Page Backup Category}', // xmas page category
+      specialCat = '${Special Page Backup Category}', // special page category
+      homeCat = '${homepage Backup Category}'; // home page category
+      backupCat = '${General Backup Category}'; // backupcat if return is 0 products
   // ================================================================
   
   // Override values ================================================================
+    // Auto select position depending on page
+     if (window.location.pathname.indexOf('/christmas-gifts') > -1){
+      pageTypes = 'xmas';
+    } else if (CLOUD_CONFIG.dispatcher.controller === 'index'){
+      pageTypes = 'home';
+    } else if (CLOUD_CONFIG.dispatcher.controller === 'category') {
+      pageTypes = 'category';
+    }
+  
   // Christmas Variation Modifications
   if (promoEvent==='christmas'){
       if (pznValues362[promoEvent].time >= xmasTime){
@@ -116,30 +129,44 @@ let pznValues362 = {
   if (promoEvent==='black-friday' || promoEvent==='cyber-monday'){
       
       if (pageTypes === 'home' || pageTypes === 'xmas'){
-          console.log('Testing 1');
+          //console.log('Testing 1');
           variationType = 'uncompressed';
       }
 
       if (variationType === 'catPageVar'){
           console.log('Testing 2');
-          prodNumber = 6; // Overidding number of products if compressed
+          prodNumber = 3; // Overidding number of products if compressed
       }
       
       if (pageTypes === 'special' || pageTypes === 'category'){
           if (variationType === 'uncompressed'){
-              console.log('Testing 3');
-          
-              if (pageTypes === 'special'){
-                  pageTypes = 'special';
-              } else {
-                  pageTypes = 'category2'; // Overriding appending location
-              }
-
+              console.log('Testing 1');
+              pageTypes = 'category2'; // Overriding appending location
+              
           } else {
+            console.log('Testing 2');
               pageTypes = 'category'; // Overriding appending location
           }
       }
   }
+  
+  // Checking page category and overriding 
+  if (typeof window.pageName != "undefined") { // Check if page category exists
+    if (window.pageName === 'Special Offers'){
+      pznValues362[promoEvent].pagecat = specialCat;
+    } else {
+      pznValues362[promoEvent].pagecat = window.pageName;
+    }
+  } else {
+    if (window.location.pathname.indexOf('/christmas-gifts') > -1){
+      pznValues362[promoEvent].pagecat = xmasCat;
+    } else if (CLOUD_CONFIG.eec.list_name === '/'){
+      pznValues362[promoEvent].pagecat = homeCat;
+    } else {
+      pznValues362[promoEvent].pagecat = backupCat;
+    }
+  }
+  
   // ================================================================================
   
   // Get Recommended products
@@ -150,23 +177,23 @@ let pznValues362 = {
           "conditions": [{
             "field": "categories", // Condition
             "arguments": [{
-              "action": "IS", // Action type IS / IS_NOT / CONTAINS / EQ / GT / GTE / LT / LTE 
+              "action": "CONTAINS", // Action type IS / IS_NOT / CONTAINS / EQ / GT / GTE / LT / LTE 
               "value": categoryName // Value of condition
             }]
           }]
         },
         "type": "include", // Include or exclude
-        "slots": [1, 2, 3] // Position in widget
+        "slots": [] // Position in widget
       }];
-
-      console.log(promoEvent);
-      console.log(pageTypes);
-      console.log(variationType);
-      console.log(xmasTime);
-      console.log(prodNumber);
       
       DYO.recommendationWidgetData(strategyId, {maxProducts: prodNumber, realtimeRules: realtimeRules}, function(err, data) {
+        // console.log(pznValues362[promoEvent].pagecat);
+        // console.log(window.pageName);
+        // if (data.slots.length < 1){
+        //   getProducts(pznValues362[promoEvent].strategyID,backupCat);
+        // } else {
           pznInsertHtml(data);
+        // } 
       });
     }
   
@@ -247,10 +274,10 @@ let pznValues362 = {
       <div class="promo-inner-wrap">
       <div class="pzn-prod-nav">
       <button class="pzn-back">
-        <span class="icon icon-angle-left"></span>
+        <i class="fa fa-angle-left"></i>
       </button>
       <button class="pzn-next">
-        <span class="icon icon-angle-right"></span>
+        <i class="fa fa-angle-right"></i>
       </button>
       </div>
           <div class="content-wrap">
@@ -270,7 +297,7 @@ let pznValues362 = {
       </div>
       </div>
   `;
-  
+  console.log(pznValues362[promoEvent].appendPage[pageTypes]);
   document.querySelector(pznValues362[promoEvent].appendPage[pageTypes]).insertAdjacentHTML('afterbegin', elHtml);
   
   //  Scroll - class swap for nav buttons
@@ -321,36 +348,3 @@ let pznValues362 = {
   scrollClassSwap();
   
   }
-
-
-    // check if object exists
-    if (typeof window.pageName != "undefined") {
-        console.log(window.pageName);
-     } else { console.log('NOT THERE'); }
-
-    // Clean DY pulling function
-
-        // Get Recommended products
-        function getProducts(strategyId, categoryName) {
-            var realtimeRules = [{
-              "id": -2,
-              "query": {
-                "conditions": [{
-                  "field": "categories", // Condition
-                  "arguments": [{
-                    "action": "CONTAINS", // Action type IS / IS_NOT / CONTAINS / EQ / GT / GTE / LT / LTE 
-                    "value": categoryName // Value of condition
-                  }]
-                }]
-              },
-              "type": "include", // Include or exclude
-              "slots": [1,2,3] // Position in widget
-            }];
-
-            DYO.recommendationWidgetData(strategyId, {maxProducts: 12, realtimeRules: realtimeRules}, function(err, data) {
-                console.log(data);
-            });
-          }
-        
-        // Get product via DY function
-        getProducts(132581,"Special Offers");
