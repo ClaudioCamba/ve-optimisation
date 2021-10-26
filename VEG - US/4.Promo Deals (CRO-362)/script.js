@@ -102,104 +102,119 @@ let pznValues362 = {
       specialCat = '${Special Page Backup Category}', // special page category
       homeCat = '${homepage Backup Category}'; // home page category
       backupCat = '${General Backup Category}'; // backupcat if return is 0 products
-  // ================================================================
-  
-  // Override values ================================================================
-    // Auto select position depending on page
-     if (window.location.pathname.indexOf('/christmas-gifts') > -1){
-      pageTypes = 'xmas';
-    } else if (CLOUD_CONFIG.dispatcher.controller === 'index'){
-      pageTypes = 'home';
-    } else if (CLOUD_CONFIG.dispatcher.controller === 'category') {
-      pageTypes = 'category';
+  // Get Page Values ==================================================
+  let pznRegion = CLOUD_CONFIG.current_region.name,
+      pznCategory = CLOUD_CONFIG.current_category.name,
+      pznControl = CLOUD_CONFIG.dispatcher.controller,
+      pznCatReg = 'categories'; // all_regions | categories
+   
+  // Override values ==================================================
+  if (pznControl === 'index'){
+    pageTypes = 'home';
+    pznValues362[promoEvent].pagecat = homeCat;
+    overrideClean();
+    console.log('HOME - REC'); // HOME
+  } else if (pznCategory === 'Christmas Gifts') { // If its Xmas page
+    pageTypes = 'xmas';
+    pznValues362[promoEvent].pagecat = xmasCat;
+    overrideClean();
+    console.log('XMAS - REC'); // XMAS
+  } else if (pznControl === 'category' || pznControl === 'region') {
+    pageTypes = 'category';
+    overrideClean();
+    if (pznCategory !== null && pznRegion !== 'All Locations'){ // CAT & LOC
+      console.log('CAT & LOC - REC');
+    } else if (pznRegion !== 'All Locations' && pznCategory === null){ // LOC
+      console.log('LOC - REC: '+pznRegion);
+      pznCatReg = 'all_regions';
+    } else if (pznRegion === 'All Locations' && pznCategory !== null){ // CAT
+      console.log('CAT - REC: '+pznCategory);
+      pznCatReg = 'categories';
+    } else {
+      console.log('BACKUP - REC: '+backupCat); // BACKUP
+      pznValues362[promoEvent].pagecat = backupCat;
     }
-  
-  // Christmas Variation Modifications
-  if (promoEvent==='christmas'){
-      if (pznValues362[promoEvent].time >= xmasTime){
-          pznValues362[promoEvent].backgrounds =  pznValues362[promoEvent].backgrounds2;
-          pznValues362[promoEvent].theme = 'dark';
-      }
+  } 
 
-      // Override if its Xmas promo
-      variationType = 'uncompressed';
-  }
-
-  // Black Friday & Cyber Monday Variation Modifications
-  if (promoEvent==='black-friday' || promoEvent==='cyber-monday'){
-      
-      if (pageTypes === 'home' || pageTypes === 'xmas'){
-          //console.log('Testing 1');
+  // Conditions depending on variation ==================================================
+  function overrideClean(){
+      // Christmas Variation Modifications
+      if (promoEvent==='christmas'){
+          if (pznValues362[promoEvent].time >= xmasTime){
+              pznValues362[promoEvent].backgrounds =  pznValues362[promoEvent].backgrounds2;
+              pznValues362[promoEvent].theme = 'dark';
+          }
+          // Override if its Xmas promo
           variationType = 'uncompressed';
       }
 
-      if (variationType === 'catPageVar'){
-          console.log('Testing 2');
-          prodNumber = 3; // Overidding number of products if compressed
-      }
-      
-      if (pageTypes === 'special' || pageTypes === 'category'){
-          if (variationType === 'uncompressed'){
-              console.log('Testing 1');
-              pageTypes = 'category2'; // Overriding appending location
-              
-          } else {
-            console.log('Testing 2');
-              pageTypes = 'category'; // Overriding appending location
+      // Black Friday & Cyber Monday Variation Modifications
+      if (promoEvent==='black-friday' || promoEvent==='cyber-monday'){
+          if (pageTypes === 'home'){
+              variationType = 'uncompressed'; // Overriding to only show uncompressed on homepage
+          }
+          if (variationType === 'catPageVar'){
+              prodNumber = 3; // Overidding number of products if compressed
+          }
+          if (pageTypes === 'category'){
+              if (variationType === 'uncompressed'){
+                  pageTypes = 'category2'; // Overriding appending location
+              } else {
+                  pageTypes = 'category'; // Overriding appending location
+              }
           }
       }
   }
   
-  // Checking page category and overriding 
-  if (typeof window.pageName != "undefined") { // Check if page category exists
-    if (window.pageName === 'Special Offers'){
-      pznValues362[promoEvent].pagecat = specialCat;
-    } else {
-      pznValues362[promoEvent].pagecat = window.pageName;
-    }
-  } else {
-    if (window.location.pathname.indexOf('/christmas-gifts') > -1){
-      pznValues362[promoEvent].pagecat = xmasCat;
-    } else if (CLOUD_CONFIG.eec.list_name === '/'){
-      pznValues362[promoEvent].pagecat = homeCat;
-    } else {
-      pznValues362[promoEvent].pagecat = backupCat;
-    }
+    // Get Recommended products - LOC or CAT ==================================================
+  function getProducts(strategyId, categoryOrLocation) {
+    var realtimeRules = [{
+      "id": -2,
+      "query": {
+        "conditions": [{
+          "field": pznCatReg, // Condition
+          "arguments": [{
+            "action": "CONTAINS", // Action type IS / IS_NOT / CONTAINS / EQ / GT / GTE / LT / LTE 
+            "value": categoryOrLocation // Value of condition
+          }]
+        }]
+      },
+      "type": "include", // Include or exclude
+      "slots": [] // Position in widget
+    }];
+    
+    DYO.recommendationWidgetData(strategyId, {maxProducts: prodNumber, realtimeRules: realtimeRules}, function(err, data) {
+      // if (data.slots.length < 1){
+      //   getProducts(pznValues362[promoEvent].strategyID,backupCat);
+      // } else {
+        pznInsertHtml(data);
+      // } 
+    });
   }
   
-  // ================================================================================
-  
-  // Get Recommended products
-  function getProducts(strategyId, categoryName) {
-      var realtimeRules = [{
-        "id": -2,
-        "query": {
-          "conditions": [{
-            "field": "categories", // Condition
-            "arguments": [{
-              "action": "CONTAINS", // Action type IS / IS_NOT / CONTAINS / EQ / GT / GTE / LT / LTE 
-              "value": categoryName // Value of condition
-            }]
-          }]
-        },
-        "type": "include", // Include or exclude
-        "slots": [] // Position in widget
-      }];
-      
-      DYO.recommendationWidgetData(strategyId, {maxProducts: prodNumber, realtimeRules: realtimeRules}, function(err, data) {
-        // console.log(pznValues362[promoEvent].pagecat);
-        // console.log(window.pageName);
-        // if (data.slots.length < 1){
-        //   getProducts(pznValues362[promoEvent].strategyID,backupCat);
-        // } else {
-          pznInsertHtml(data);
-        // } 
-      });
+  // Main function fire control
+  if (pznControl === 'index'){
+    if (pznRegion === 'All Locations'){
+      console.log('Using backup category: '+pznValues362[promoEvent].pagecat);
+      getProducts(pznValues362[promoEvent].strategyID,pznValues362[promoEvent].pagecat); // Get product via DY function
+    } else {
+      console.log('Using page region: '+pznRegion);
+      pznCatReg = 'all_regions';
+      getProducts(pznValues362[promoEvent].strategyID,pznRegion); // Get product via DY function
     }
-  
-  // Get product via DY function
-  getProducts(pznValues362[promoEvent].strategyID,pznValues362[promoEvent].pagecat);
-  
+    
+  } else if (pznCategory === 'Christmas Gifts'){
+    console.log('Using page category: '+pznCategory);
+    getProducts(pznValues362[promoEvent].strategyID,pznCategory); // Get product via DY function
+  } else if (pznCatReg === 'categories'){
+    console.log('Using page category: '+pznCategory);
+    getProducts(pznValues362[promoEvent].strategyID,pznCategory); // Get product via DY function
+  } else if (pznCatReg === 'all_regions'){
+    console.log('Using page region: '+pznRegion);
+    getProducts(pznValues362[promoEvent].strategyID,pznRegion); // Get product via DY function
+  }
+
+      
   // Insert HTML with data
   function pznInsertHtml(data){
       console.log(data);
@@ -348,3 +363,5 @@ let pznValues362 = {
   scrollClassSwap();
   
   }
+  
+

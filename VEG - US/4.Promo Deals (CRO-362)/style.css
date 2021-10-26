@@ -116,7 +116,7 @@
 
 .promo-product {
     width: 100%;
-    max-width: 674px;
+    max-width: 714px;
     overflow-x: scroll;
     white-space: nowrap;
     justify-content: flex-start;
@@ -173,7 +173,7 @@
     /* width: 33.33%;
     display: inline-block;
     margin-right: 2.5%; */
-    width: 214px;
+    width: 227px;
     display: inline-block;
     margin-right: 16px;
     vertical-align: top;
@@ -219,7 +219,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    height: 66px;
+    height: 44px;
     margin-bottom: 16px;
 }
 
@@ -414,15 +414,20 @@
     max-width: 257px;
 }
 /* Right */
+.pzn-deal-promo.black-friday .promo-product,
+.pzn-deal-promo.cyber-monday .promo-product {
+    max-width: 738px;
+}
 .pzn-deal-promo.black-friday .promo-product .prod-card,
 .pzn-deal-promo.cyber-monday .promo-product .prod-card {
     background: #282B30;
     box-shadow: 0px 4px 8px rgb(0 0 0 / 20%), 0px 2px 2px rgb(0 0 0 / 15%);
     border-radius: 8px;
+    width: 235px;
 }
 .pzn-deal-promo.black-friday .card-copy,
 .pzn-deal-promo.cyber-monday .card-copy {
-    padding: 0 16px 24px;
+    padding: 0 16px 16px;
 }
 .pzn-deal-promo.black-friday .card-img img,
 .pzn-deal-promo.cyber-monday .card-img img {
@@ -432,7 +437,8 @@
 }
 .pzn-deal-promo.black-friday .card-img,
 .pzn-deal-promo.cyber-monday .card-img {
-    margin-bottom: 27px;
+    /* margin-bottom: 27px; */
+    margin-bottom: 16px;
 }
 .pzn-deal-promo.black-friday .featured-flag.white,
 .pzn-deal-promo.cyber-monday .featured-flag.white {
