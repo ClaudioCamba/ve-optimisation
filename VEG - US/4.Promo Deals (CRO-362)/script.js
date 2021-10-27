@@ -6,7 +6,7 @@ let pznValues362 = {
           'home' : `.homepage-section.homepage-egiftcard-section`, // Homepage append
           'special' : `.maincontent > .categoryPage`, // Special page append
           'category' : `.row.result-container`, // Category page append
-          'xmas' : `#categorypage > div:nth-of-type(2)` // Xmas page append
+          'xmas' : `.row.result-container` // Xmas page append
       },
       pagecat : window.pageName,
       strategyID : Math.round('${Christmas Strategy ID}'),
@@ -42,7 +42,7 @@ let pznValues362 = {
           'special' : `.categoryPage > .container > .row`, // Special page append
           //'special' : `.maincontent > .categoryPage`, // Special page append
           'category' : `.result-container > .col-xs-12.col-sm-9`, // Category page append
-          'xmas' : `#categorypage > div:nth-of-type(2)` // Xmas page append
+          'xmas' : `.row.result-container` // Xmas page append
       },
       pagecat : window.pageName,
       strategyID : Math.round('${BF CM Strategy ID}'),
@@ -71,7 +71,7 @@ let pznValues362 = {
           'special' : `.categoryPage > .container > .row`, // Special page append
           //'special' : `.maincontent > .categoryPage`, // Special page append
           'category' : `.result-container > .col-xs-12.col-sm-9`, // Category page append
-          'xmas' : `#categorypage > div:nth-of-type(2)` // Xmas page append
+          'xmas' : `.row.result-container` // Xmas page append
       },
       pagecat : window.pageName,
       strategyID : Math.round('${BF CM Strategy ID}'),
@@ -95,13 +95,13 @@ let pznValues362 = {
   // Control: value selector =======================================
   let promoEvent = '${Theme Option}', // christmas / black-friday / cyber-monday
       pageTypes = '', // Home / Category / Special / Xmas / Auto
-      variationType = '${Module Variation}', // Uncompressed / Compressed 
+      variationType = 'uncompressed', // Uncompressed / Compressed 
       xmasTime = Math.round('${Christmas BG Time}'), // 24 Hour format
       prodNumber = Math.round('${Number of Products}'), // Number of products for DY to pull
       xmasCat = '${Xmas Page Backup Category}', // xmas page category
-      specialCat = '${Special Page Backup Category}', // special page category
-      homeCat = '${homepage Backup Category}'; // home page category
-      backupCat = '${General Backup Category}'; // backupcat if return is 0 products
+      homeCat = '${homepage Backup Category}', // home page category
+      backupCat = '${General Backup Category}', // backupcat if return is 0 products
+      dealfilter = '${Promo Filter}';
   // Get Page Values ==================================================
   let pznRegion = CLOUD_CONFIG.current_region.name,
       pznCategory = CLOUD_CONFIG.current_category.name,
@@ -124,6 +124,7 @@ let pznValues362 = {
     overrideClean();
     if (pznCategory !== null && pznRegion !== 'All Locations'){ // CAT & LOC
       console.log('CAT & LOC - REC');
+      pznCatReg = 'catAndRegion';
     } else if (pznRegion !== 'All Locations' && pznCategory === null){ // LOC
       console.log('LOC - REC: '+pznRegion);
       pznCatReg = 'all_regions';
@@ -177,7 +178,13 @@ let pznValues362 = {
             "action": "CONTAINS", // Action type IS / IS_NOT / CONTAINS / EQ / GT / GTE / LT / LTE 
             "value": categoryOrLocation // Value of condition
           }]
-        }]
+        },{
+            "field": "keywords", // Condition
+            "arguments": [{
+                "action": "CONTAINS",
+                "value": dealfilter
+            }]
+          }]
       },
       "type": "include", // Include or exclude
       "slots": [] // Position in widget
@@ -192,6 +199,44 @@ let pznValues362 = {
     });
   }
   
+  // Get Recommended products - LOC & CAT ==================================================
+  function getProductsTwo(strategyId, categoryName, locationName) {
+    var realtimeRules = [{
+      "id": -2,
+      "query": {
+        "conditions": [{
+          "field": "categories", // Condition
+          "arguments": [{
+            "action": "CONTAINS", // Action type IS / IS_NOT / CONTAINS / EQ / GT / GTE / LT / LTE 
+            "value": categoryName // Value of condition
+          }]
+        }, {
+            "field": "all_regions", // Condition
+            "arguments": [{
+              "action": "CONTAINS",
+              "value": locationName
+            }]
+          },{
+            "field": "keywords", // Condition
+            "arguments": [{
+                "action": "CONTAINS",
+                "value": dealfilter
+            }]
+          }]
+      },
+      "type": "include", // Include or exclude
+      "slots": [] // Position in widget
+    }];
+    
+      DYO.recommendationWidgetData(strategyId, {maxProducts: prodNumber, realtimeRules: realtimeRules}, function(err, data) {
+              // if (data.slots.length < 1){
+        //   getProducts(pznValues362[promoEvent].strategyID,backupCat);
+        // } else {
+          pznInsertHtml(data);
+        // } 
+      });
+    }
+  
   // Main function fire control
   if (pznControl === 'index'){
     if (pznRegion === 'All Locations'){
@@ -205,14 +250,20 @@ let pznValues362 = {
     
   } else if (pznCategory === 'Christmas Gifts'){
     console.log('Using page category: '+pznCategory);
-    getProducts(pznValues362[promoEvent].strategyID,pznCategory); // Get product via DY function
-  } else if (pznCatReg === 'categories'){
+    getProducts(pznValues362[promoEvent].strategyID,xmasCat); // Get product via DY function
+  } else if (pznCatReg === 'catAndRegion'){
+    console.log('TEST1');
+    getProductsTwo(pznValues362[promoEvent].strategyID,pznCategory,pznRegion);
+  }else if (pznCatReg === 'categories'){
     console.log('Using page category: '+pznCategory);
     getProducts(pznValues362[promoEvent].strategyID,pznCategory); // Get product via DY function
   } else if (pznCatReg === 'all_regions'){
     console.log('Using page region: '+pznRegion);
     getProducts(pznValues362[promoEvent].strategyID,pznRegion); // Get product via DY function
+  } else {
+    getProducts(pznValues362[promoEvent].strategyID,backupCat); // Get product via DY function
   }
+
 
       
   // Insert HTML with data
@@ -226,13 +277,14 @@ let pznValues362 = {
   // Loop products and make adjustments 
   for (var i = 0; i < pznValues362[promoEvent].recProducts.slots.length; i++){
 
-
-      // Clean Before price, don't show if its the same
+     // Clean Before price, don't show if its the same
       let pznWasPrice;
       if (parseFloat(pznValues362[promoEvent].recProducts.slots[i].item.was_price) === parseFloat(pznValues362[promoEvent].recProducts.slots[i].item.dy_display_price)){
           pznWasPrice = '';
+      } else if (parseFloat(pznValues362[promoEvent].recProducts.slots[i].item.was_price) === 0){
+        pznWasPrice = '';
       } else {
-          pznWasPrice = 'WAS £'+parseFloat(pznValues362[promoEvent].recProducts.slots[i].item.was_price).toFixed(2).replace(/\.0+$/,'')+'';
+          pznWasPrice = 'WAS $'+parseFloat(pznValues362[promoEvent].recProducts.slots[i].item.was_price).toFixed(2).replace(/\.0+$/,'')+'';
       }
   
       // Clean last 2 numbers
@@ -248,8 +300,8 @@ let pznValues362 = {
       // Clean savings
       let savingsPercent = parseFloat(data.slots[i].item.saving_amount),
           offerMsg = '';
-
-      if (savingsPercent===0){
+      
+      if (savingsPercent === 0 || isNaN(savingsPercent)){
           savingsPercent = '';
       } else {
           if (promoEvent==='christmas'){
@@ -274,8 +326,9 @@ let pznValues362 = {
             <div class="card-desc">
               <p>`+pznValues362[promoEvent].recProducts.slots[i].item.name+`</p>
             </div>
+            <p class="card-loc"><i class="fa fa-map-marker"></i>`+pznValues362[promoEvent].recProducts.slots[i].item.location_description+`</p>
             <p class="card-price">
-              <span>`+'£'+cleanDecimal+`</span> 
+              <span>`+'$'+cleanDecimal+`</span> 
               <span>`+pznWasPrice+`</span>
             </p>
           </div>
@@ -320,13 +373,13 @@ let pznValues362 = {
       let wrapScrollWidth = document.querySelectorAll('.promo-product')[0].scrollWidth/100*70;
   
       if (Math.ceil(100*document.querySelectorAll('.promo-product')[0].scrollLeft/wrapScrollWidth) <= 5){
-          document.querySelector('.pzn-prod-nav').classList.add('nav-right');
-          document.querySelector('.pzn-prod-nav').classList.remove('nav-left');
+          document.querySelector('.pzn-prod-nav').classList.add('navs-right');
+          document.querySelector('.pzn-prod-nav').classList.remove('navs-left');
       } else if (Math.ceil(100*document.querySelectorAll('.promo-product')[0].scrollLeft/wrapScrollWidth) >= 95){
-          document.querySelector('.pzn-prod-nav').classList.remove('nav-right');
-          document.querySelector('.pzn-prod-nav').classList.add('nav-left');
+          document.querySelector('.pzn-prod-nav').classList.remove('navs-right');
+          document.querySelector('.pzn-prod-nav').classList.add('navs-left');
       } else {
-          document.querySelector('.pzn-prod-nav').classList.remove('nav-left','nav-right');
+          document.querySelector('.pzn-prod-nav').classList.remove('navs-left','navs-right');
       }
    }
   
