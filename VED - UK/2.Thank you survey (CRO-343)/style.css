@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Merriweather|Playfair+Display|Roboto');
+
+
+#dytmpl-${dyVariationId} {
+  width: 90vw;
+  height:400px;
+  vertical-align:top;
+  max-width:800px;
+  font-family:${Secondary Text and Button Fonts};
+  box-sizing:border-box;
+  background:${Background Color};
+  line-height:1.5;
+  color:${Text Color};
+}
+
+.content_${dyVariationId} {
+  display:inline-block;
+  width:50%;
+  padding:40px;
+  text-align:center;
+  font-size:20px;
+  vertical-align:top;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 920px) {
+  #dytmpl-${dyVariationId} {
+    height:300px;
+  }
+  
+  .content_${dyVariationId} {
+    font-size:16px;
+  }
+  
+}
+
+@media only screen and (max-width: 600px) {
+  #dytmpl-${dyVariationId} {
+    height:initial;
+  }
+  
+  .content_${dyVariationId} {
+    display:block;
+    width:100%;
+    padding:25px 20px 20px;
+    font-size:0.8em;
+  }
+
+}
+
+
+    /* CSS Amendments ========================================================================== */
+
+    /* All */
+
+    .dy-modal-container .dy-modal-backdrop {
+    	opacity: 0.8!important;
+    }
+    .dy-modal-container .dy-modal-wrapper .dy-modal-contents .dy-lb-close {
+    	top: 10px!important;
+    	right: 10px!important;
+    	cursor: pointer!important;
+    	height: 22px!important;
+    	width: 22px!important;
+    	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTUgNTUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU1IDU1IiB4bWw6c3BhY2U9InByZXNlcnZlIj48ZyBpZD0iY2xvc2UiPjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNDMuNSwxNC43IDQwLjMsMTEuNSAyNy41LDI0LjMgMTQuNywxMS41IDExLjUsMTQuNyAyNC4zLDI3LjUgMTEuNSw0MC4zIDE0LjcsNDMuNSAyNy41LDMwLjcgNDAuMyw0My41IDQzLjUsNDAuMyAzMC43LDI3LjUgIi8+PC9nPjwvc3ZnPg==) #1f2025;
+    	background-size: 22px!important;
+    	border: none!important;
+    	border-radius: 0!important;
+    }
+    .small-txt {
+    	font-size: 16px;
+    	color: #3e4f58;
+    }
+    .ved343-main {
+        height: auto!important;
+        min-height: 400px;
+    }
+    /* Top */
+
+    .tysurvey-top {
+    	width: 100%;
+    	height: 75px;
+    	padding: 10px;
+    	background-color: #e10a0a;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	border-bottom: 2px solid #B80000;
+    }
+    .tysurvey-top .pzn-ved-logo {
+    	width: auto;
+    	height: 100%;
+    	display: block;
+    	margin: 0 auto;
+    }
+
+    /* Body */
+    .ved343-content {
+    	width: 100%;
+    	padding: 24px;
+    	height: auto;
+        min-height: 325px;
+    }
+    .ved343-content>.step1, 
+    .ved343-content>.step2,
+    .ved343-content>.step3 {
+    	display: none;
+    }
+    .ved343-content.step1>.step1,
+    .ved343-content.step2>.step2,
+    .ved343-content.step3>.step3 {
+    	display: block;
+    }
+    /* Step 1 */
+
+    .ved343-content .pzn-title {
+    	font-family: ProximaNova, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    	font-size: 32px;
+    	font-weight: bold;
+    	color: #292d2f;
+    	margin: 0;
+    	margin-bottom: 40px;
+        padding: 0 10px;
+    }
+    /* 1-5 Stars */
+
+    .rating-wrap.rate-stars {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Stars Styling ---------------------------------------------------------- */
+    /*shows the stars side by side, centered, and in reverse order than the HMTL*/
+    .step1 .rating-wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        padding: 0 20px;
+    }
+
+    /*hides the radio buttons*/
+    .step1 .rating-wrapper > input{ 
+        display:none;
+    }
+
+    /*style the empty stars, sets position:relative as base for pseudo-elements*/
+    .step1 .rating-wrapper > label {
+        position: relative;
+        width: 60px;
+        font-size: 45px;
+        color: #B80000;
+        cursor: pointer;
+    }
+
+    /* sets filled star pseudo-elements */
+    .step1 .rating-wrapper > label::before{ 
+        content: "\2605";
+        position: absolute;
+        opacity: 0;
+    }
+    /*overlays a filled start character to the hovered element and all previous siblings*/
+    .step1 .rating-wrapper > label:hover:before,
+    .step1 .rating-wrapper > label:hover ~ label:before {
+        opacity: 1 !important;
+    }
+
+    /*overlays a filled start character on the selected element and all previous siblings*/
+    .step1 .rating-wrapper > input:checked ~ label:before{
+        opacity:1;
+    }
+
+    /*when an element is selected and pointer re-enters the rating container, selected rate and siblings get semi transparent, as reminder of current selection*/
+    .step1 .rating-wrapper:hover > input:checked ~ label:before{ 
+        opacity: 0.4; 
+    }
+
+    /* Step 2 */
+    .ved343-content .step2 .pzn-title {
+    	margin-bottom: 16px;
+    }
+    .response-btns *,
+    .response-btns  {
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+        box-sizing: border-box;
+    }
+    .response-btns  {
+        margin-bottom: 24px;
+    }
+    .response-btns > button {
+        display: inline-block;
+        width: fit-content;
+        font-size: 16px;
+        border: 1px solid #3e4f58;
+        color: #3e4f58;
+        padding: 8px 16px;
+        border-radius: 20px;
+        margin: 6px;
+        line-height: 1;
+    }
+    .response-btns > button:hover {
+        background-color: #e10a0a;
+        background-color: rgba(225, 10, 10, 0.2);
+        border-color: #e10a0a;
+        color:#B80000;
+    }
+    .response-btns > button.btn-active {
+        background-color: #B80000;
+        border-color: #FFF;
+        color: #FFF;
+    }
+    .step2 .submit-btn {
+    	color: #fff;
+    	background-color: #e10a0a;
+    	padding: 14px 40px;
+    	width: auto;
+    	border-left: none;
+    	border-radius: 4px;
+    	border-width: 0px;
+    	font-size: 14px;
+    	font-weight: 700;
+    	display: inline-block;
+    	text-transform: uppercase;
+    	text-align: center;
+        margin-bottom: 16px;
+        line-height: 1;
+    }
+    .step2 .submit-btn:hover {
+        padding: 14px 40px;
+        background-color: #b00808;
+    }
+    .step2-back,
+    .step3-close {
+    	text-decoration: underline;
+    	display: block;
+    	width: fit-content;
+    	margin: 0 auto;
+    	text-align: center;
+    	padding: 5px;
+        cursor: pointer;
+        line-height: 1;
+    }

@@ -1,0 +1,33 @@
+    <!-- HTML ========================================================================== -->
+    <div class="ved343-main" id="dytmpl-${dyVariationId}">
+        <div class="tysurvey-top"><img alt="Virgin Experience Days" class="pzn-ved-logo" src="https://ved.virgin.authxlab.com/_common/img/logos/ved--reversed.png?v=202109231430"></div>
+        <div class="ved343-content step1 content_${dyVariationId}">
+            <div class="step1">
+                <div class="pzn-title title_${dyVariationId}">
+                    ${Survey Step 1 Question}
+                </div>
+                <div class="rating-wrap rate-stars">
+                    <span class="small-txt">${Low Stars Label}</span>
+                    <div class="rating-wrapper">
+                        <!--elements are in reversed order, to allow "previous sibling selectors" in CSS-->
+                        <input action="mentionme"  type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                        <input action="mentionme"  type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                        <input action="step2" type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                        <input action="step2" type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                        <input action="step2" type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                      </div>
+                    <span class="small-txt">${High Stars Label}</span>
+                </div>
+            </div>
+            <div class="step2">
+                <div class="pzn-title">${Survey Step 2 Question}</div>
+                <div class="response-btns"></div>
+                <button action="step3" class="submit-btn button_${dyVariationId}">${Submit Button Text}</button>
+                <button action="step1" class="small-txt step2-back">${Step 2 Back Button}</button>
+            </div>
+            <div class="step3">
+                <div class="pzn-title">${Step 3 Thank You Message}</div>
+                <button action="close" class="small-txt step3-close">${Step 3 Close Button}</button>
+            </div>
+        </div>
+    </div>
